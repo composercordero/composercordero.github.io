@@ -1,27 +1,12 @@
-# React + TypeScript + Vite
+# Carlos Cordero is Dating JavaScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Hola, People! My name is Carlos Cordero. This is the repository for my professional portfolio website. I'll be updating this file as I add features to my website.
 
-Currently, two official plugins are available:
+I create user-centered solutions through writing efficient, clean code, effective communication, and meaningful collaboration. I strive to find creative solutions, listen to my peers, and perform extensive research to be a valuable part of a team, bringing timely, professional contributions to create the best product for our clients.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Carlos' Linkedin](https://www.linkedin.com/in/composercordero/)
 
-## Expanding the ESLint configuration
+## Concept
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The concept for my portfolio is a personal diary where I tell the user about my journey of dating JavaScript (and other languages). While dating JS, I create wonderful memories, learn new things, go through periods of frustration, but in the end enjoy the overall process of creating a deep connection to JS.
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
