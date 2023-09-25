@@ -8,6 +8,7 @@ import Contact from "./views/Contact"
 import Projects from "./views/Projects"
 // import globals
 import Header from "./components/global/Header";
+import Footer from "./components/global/Footer";
 
 import './App.css'
 
@@ -26,6 +27,7 @@ function App() {
           <Route path='/contact' element={<Contact />}/>
           <Route path='/projects' element={<Projects />}/>
         </Routes>
+        <Footer/>
       </div>
     </Theme>
 </>)
