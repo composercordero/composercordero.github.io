@@ -5,7 +5,7 @@ import Theme from './Theme.jsx';
 // import Views
 import Home from "./views/Home"
 import Contact from "./views/Contact"
-import Projects from "./views/Projects"
+import Projects from "./views/Projects.js"
 // import globals
 import Header from "./components/global/Header";
 import Footer from "./components/global/Footer";

@@ -1,6 +1,4 @@
 import styled from "styled-components"
-import dashboard from "../../assets/CORO-Programming-Dashboard.png"
-import user from "../../assets/CORO-user-dashboard.png"
 
 
 const ProjectContent = styled.div`
@@ -8,17 +6,25 @@ const ProjectContent = styled.div`
 
 const ProjectImage = styled.div`
 display: flex;
-justify-content: space-around;
+justify-content: start;
 gap: 1rem;
-margin: 1rem;
+margin-top: 1rem;
+margin-bottom: 1rem;
+padding-bottom: 2rem;
 
 img{
-    width: 45%;
+    width: 100%;
+    height: 100%;
     border-radius:25px;
     padding: 0;
     margin: 0;
     max-width: none;
 }
+`;
+
+const ImageContainer = styled.div`
+    box-shadow: 0px 0px 20px #e9e9e9;
+    border-radius:25px;
 `;
 
 const ProjectSummary = styled.p`
@@ -40,14 +46,13 @@ const ProjectTitle = styled.h1`
 const ProjectDescription = styled.div`
     position: relative;
     z-index: 2;
-    padding: 2rem;
     border-radius: 25px;
-    background-color: #eee;
     font-size: 1.125rem;
     font-weight: 200;
     line-height: 1.8;
-    text-align: justify;
     margin-bottom: 1rem;
+    white-space: pre-line;
+}
 `;
 
 const ProjectTech = styled.ul`
@@ -62,7 +67,7 @@ const ProjectTech = styled.ul`
     li{
         margin: 0 1rem 0.5rem 0;
         font-size: 0.875rem;
-        font-weight: 700;
+        font-weight: 400;
         padding: 0.3rem 0.875rem;
         border-radius: 25px;
         color: #ff0080;
@@ -76,54 +81,39 @@ const ProjectTech = styled.ul`
         cursor: pointer;
         transition: 0.2s ease;
     }
-
-
 `;
 
 type featuredProjectProps = {
     summary:string,
     title:string,
     content:string,
-    tech:string,
-    image:string,
-    git:string,
-    link:string,
+    tech:string[],
+    image:string[][],
 }
 
-const techMock:string[] = ['React.js', 'Vite', 'TypeScript', 'Python', 'Flask', 'MySQL']
-
-const info = [
-    {
-        summary:'Project Summary',
-        title:'Project Title',
-        description: 'CORO is a programming app for church choirs that allows staff to have a solid management on the music of the church.',
-        tech: ['React.js', 'Vite', 'TypeScript', 'Python', 'Flask', 'MySQL'],
-        image: [{dashboard}, {user}]
-    }
-]
-
-const FeaturedProject = ({summary, title, content, tech, image, git, link}: featuredProjectProps) => {
+const FeaturedProject = ({summary, title, content, tech, image}: featuredProjectProps) => {
     return (<>
     
             <ProjectContent>
-                <ProjectSummary>Project Summary</ProjectSummary>
-                <ProjectTitle>Project Title</ProjectTitle>
+                <ProjectSummary>{summary}</ProjectSummary>
+                <ProjectTitle>{title}</ProjectTitle>
                 <ProjectDescription>
-                    <p>CORO is a programming app for church choirs that allows staff to have a solid management on the music of the church.</p>
-                </ProjectDescription>
                 <ProjectTech>
-                    {techMock.length && 
-                    (techMock.map((tech, i) => (<li key={i}>{tech}</li>)))}
+                    {tech.length && 
+                    (tech.map((item, i) => (<li key={i} >{item}</li>)))}
                 </ProjectTech>
+                    <p>{content}</p>
+                </ProjectDescription>
                 
             </ProjectContent>
 
             <ProjectImage>
-                <img src={dashboard} alt="dashboard" />
-                <img src={user} alt="dashboard" />
+                {image && (
+                    image.map((img, i) => (
+                    <ImageContainer key={i}><img  src={img[0]} alt={img[1]} /></ImageContainer>
+                    ))
+                )}
             </ProjectImage>
-    
-    
     </>)
 }
 export default FeaturedProject

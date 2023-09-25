@@ -5,6 +5,7 @@ import { Sun, Moon } from "react-bootstrap-icons";
 import carlos from "../../assets/carlos.jpeg"
 import styled from "styled-components";
 
+
 type headerProps = {
     isDarkTheme: boolean,
     theme:boolean,
@@ -13,6 +14,9 @@ type headerProps = {
 
 const StyledHeader = styled.section`
     display: flex;
+    position: sticky;
+    top:0;
+    background-color:#fff;
     z-index:1;
     min-height: 9vh;
     width: 90%;

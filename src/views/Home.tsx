@@ -1,7 +1,8 @@
 import styled from "styled-components"
-import { Link, useNavigate } from "react-router-dom";
 import Hero from "../components/global/Hero";
-import Card from "../components/global/Card"
+import Card from "../components/global/FeaturedProject"
+import featuredProjects from "../components/featuredProjects"
+
 
 const Container = styled.section`
     display: flex;
@@ -47,16 +48,15 @@ const info = {
 
 const Home = () => {
 
-    const navigate = useNavigate();
-
     return (<>   
         <Container>
             <Hero accent={info['accent']} title={info['title']} content= {info['content']}/>
             
             <Title><span>Featured Projects</span></Title>
             
-            <Card></Card>
-
+            {featuredProjects.map((project, i)=> (<Card key={i} summary={project.summary} title={project.title} content={project.content} tech={project.tech} image={project.image}></Card>)
+            )}
+            
         </Container>
     
     </>)
