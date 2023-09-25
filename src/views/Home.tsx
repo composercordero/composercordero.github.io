@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { Link, useNavigate } from "react-router-dom";
+import Hero from "../components/global/Hero";
 
 const Container = styled.section`
     display: flex;
@@ -35,23 +36,13 @@ const Title = styled(AccentTitle)`
         background:#fff; 
         padding-right:1rem;
     }
-
 `;
 
-const HeroTitle = styled.h1`
-    font-size: 6rem;
-    line-height:1.2;
-    margin-bottom:2rem;
-    font-weight: 600;
-    color: #444;
-`;
-
-const HeroContent = styled.p`
-    font-size: 2rem;
-    line-height: 1.8;
-    font-weight: 200;
-`;
-
+const info = {
+    accent: 'Dear diary,',
+    title: 'I am in love with JavaScript!',
+    content: 'As a Junior Software Developer, I care about user-centered solutions that communicate meaningful moments and make everyone\'s life more exciting. Let me tell you about my love for JS (and Python, SQL, and so on 🙈).'
+}
 
 const Home = () => {
 
@@ -59,16 +50,8 @@ const Home = () => {
 
     return (<>   
         <Container>
-            <AccentTitle>
-                <Link to="about" style = {{textDecoration: 'none', color: '#ff0080'}}onClick={(e) => { e.preventDefault(); navigate("about") }}>Dear diary,</Link>
-            </AccentTitle>
-
-            <HeroTitle>I am in love with JavaScript!</HeroTitle>
-
-            <HeroContent>
-            As a Junior Software Developer, I care about user-centered solutions that communicate meaningful moments and make everyone's life more exciting. Let me tell you about my love for JS (and Python, SQL, and so on 🙈).
-            </HeroContent>
-
+            <Hero accent={info['accent']} title={info['title']} content= {info['content']}/>
+            
             <Title><span>Featured Projects</span></Title>
 
 
