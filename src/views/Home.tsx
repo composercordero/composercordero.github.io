@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { Link, useNavigate } from "react-router-dom";
 import Hero from "../components/global/Hero";
+import Card from "../components/global/Card"
 
 const Container = styled.section`
     display: flex;
@@ -27,7 +28,7 @@ const AccentTitle = styled.p`
 `;
 
 const Title = styled(AccentTitle)`
-    margin-top: 5rem;
+    margin: 5rem 0 4rem;
     width: 100%; 
     border-bottom: 5px solid #eee; 
     line-height: 0.1rem;
@@ -40,8 +41,8 @@ const Title = styled(AccentTitle)`
 
 const info = {
     accent: 'Dear diary,',
-    title: 'I am in love with JavaScript!',
-    content: 'As a Junior Software Developer, I care about user-centered solutions that communicate meaningful moments and make everyone\'s life more exciting. Let me tell you about my love for JS (and Python, SQL, and so on 🙈).'
+    title: 'I am in love with JavaScript (🙈)',
+    content: 'As a Junior Software Developer, I care about user-centered solutions that communicate meaningful moments and make everyone\'s life more exciting. Let me tell you about my love for JS.'
 }
 
 const Home = () => {
@@ -53,7 +54,8 @@ const Home = () => {
             <Hero accent={info['accent']} title={info['title']} content= {info['content']}/>
             
             <Title><span>Featured Projects</span></Title>
-
+            
+            <Card></Card>
 
         </Container>
     
