@@ -3,7 +3,6 @@ import Hero from "../components/global/Hero";
 import Card from "../components/global/FeaturedProject"
 import featuredProjects from "../components/info/featuredProjects"
 
-
 const Container = styled.section`
     display: flex;
     flex: 1 0 auto;
@@ -20,14 +19,13 @@ const AccentTitle = styled.p`
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 1px;
-    font-size: 2rem;
-    color:#444;
+    font-size: ${props => props.theme.fontSizes.l};;
+    color: ${props => props.theme.colors.text};
 
     a {
-    font-size: 1.5rem;
+    font-size: ${props => props.theme.fontSizes.m};;
     }
 `;
-
 const Title = styled(AccentTitle)`
     margin: 5rem 0 4rem;
     width: 100%; 
@@ -35,7 +33,7 @@ const Title = styled(AccentTitle)`
     line-height: 0.1rem;
 
     span { 
-        background:#fff; 
+        background: ${props => props.theme.colors.body};
         padding-right:1rem;
     }
 `;
@@ -47,7 +45,7 @@ const info = {
 }
 
 const Home = () => {
-
+    
     return (<>   
         <Container>
             <Hero accent={info['accent']} title={info['title']} content= {info['content']}/>

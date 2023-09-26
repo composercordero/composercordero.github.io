@@ -3,20 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { Switch } from 'antd';
 import { Sun, Moon } from "react-bootstrap-icons";
 import carlos from "../../assets/carlos.jpeg"
-import styled from "styled-components";
-
-
-type headerProps = {
-    isDarkTheme: boolean,
-    theme:boolean,
-    setTheme:Dispatch<SetStateAction<boolean>>,
-}
+import styled, {useTheme} from "styled-components";
 
 const StyledHeader = styled.section`
     display: flex;
     position: sticky;
     top:0;
-    background-color:#fff;
+    background-color: ${props => props.theme.colors.body};
     z-index:1;
     min-height: 9vh;
     width: 90%;
@@ -27,11 +20,11 @@ const StyledHeader = styled.section`
     max-width: 1200px;
     a{
         text-decoration: none;
-        color: #444;
+        color: ${props => props.theme.colors.text};
         transition: 0.2s ease;
     };
     a:hover{
-        color: #ff0080;
+        color: ${props => props.theme.colors.accentColor[500]};
     }
 `;
 
@@ -77,7 +70,7 @@ const Line = styled.span`
     width: 25px;
     height: 3px;
     margin: 5px;
-    background-color: #444;
+    background-color: ${props => props.theme.colors.text};
     transition: width 0.4s ease-in-out;
 
     :nth-child(2) {
@@ -89,7 +82,7 @@ const Overlay = styled.div`
     position: absolute;
     height: ${props => (props.open ? "91vh" : 0)};
     width: 100vw;
-    background: #fff;
+    background: ${props => props.theme.colors.body};
     transition: height 0.4s ease-in-out;
 
     @media (min-width: 769px) {
@@ -116,14 +109,20 @@ const OverlayMenu = styled.ul`
 
     a{
         text-decoration: none;
-        color: #444;
+        color: ${props => props.theme.colors.text};
         transition: 0.2s ease;
-        font-size:2rem;
+        font-size: ${props => props.theme.fontSizes.l};;
     };
     a:hover{
-        color: #ff0080;
+        color: ${props => props.theme.colors.accentColor[500]};
     }
 `;
+
+type headerProps = {
+    isDarkTheme: boolean,
+    theme:boolean,
+    setTheme:Dispatch<SetStateAction<boolean>>,
+}
 
 const Header = ({isDarkTheme, theme, setTheme}: headerProps) => {
 
@@ -132,7 +131,7 @@ const Header = ({isDarkTheme, theme, setTheme}: headerProps) => {
 
     const handleTheme = () => {
         setTheme(!theme)
-        console.log(`switch to ${isDarkTheme}`);
+        console.log(isDarkTheme)
     };
 
     const handleNavigate = (e) => {
@@ -146,8 +145,10 @@ const Header = ({isDarkTheme, theme, setTheme}: headerProps) => {
         toggleNav(!toggle)
     }
 
+    const prop = useTheme()
 
 return (<>
+
     <StyledHeader>
         <Link to="/" onClick={(e) => { e.preventDefault(); navigate("/"); }} style={{display:'flex', alignItems:'center'}}>
             <img src={carlos} alt="Carlos" width={48} height={48} style={{borderRadius: '50%',marginRight:'0.5rem'}}/>
@@ -159,21 +160,14 @@ return (<>
             <Nav>
                 <StyledMenu>
                     <ul style={{display:'flex', alignItems:'center', columnGap:'2em', marginRight:'1rem'}}>
-                        <li>
-                            <Link to="/" onClick={handleNavigate}> Home </Link>
-                        </li>
-
-                        <li>
-                            <Link to="projects" onClick={handleNavigate}> Projects </Link>
-                        </li>
-                        <li>
-                            <Link to="contact" onClick={handleNavigate}> Contact </Link>
-                        </li>
+                        <li><Link to="/" onClick={handleNavigate}> Home </Link></li>
+                        <li> <Link to="projects" onClick={handleNavigate}> Projects </Link> </li>
+                        <li> <Link to="contact" onClick={handleNavigate}> Contact </Link> </li>
                     </ul>
                 </StyledMenu>
             <Icons>
                 <Moon />
-                <Switch defaultChecked onChange={handleTheme} style={{backgroundColor:'#ff0080'}}/>
+                <Switch defaultChecked onChange={handleTheme} style={{backgroundColor:`${prop.colors.accentColor[500]}`}}/>
                 <Sun />
             </Icons>
             <NavIcon onClick={() => toggleNav(!toggle)}>
@@ -186,18 +180,9 @@ return (<>
 
     <Overlay open={toggle}>
         <OverlayMenu open={toggle}>
-            <li>
-                <Link to="/" onClick={handleMobileNavigate}> Home </Link>
-            </li>
-
-            <li>
-                <Link to="projects" onClick={handleMobileNavigate}> Projects </Link>
-            </li>
-
-            <li>
-                <Link to="contact" onClick={handleMobileNavigate}> Contact </Link>
-            </li>
-
+            <li> <Link to="/" onClick={handleMobileNavigate}> Home </Link> </li>
+            <li> <Link to="projects" onClick={handleMobileNavigate}> Projects </Link> </li>
+            <li> <Link to="contact" onClick={handleMobileNavigate}> Contact </Link> </li>
         </OverlayMenu>
     </Overlay>
         

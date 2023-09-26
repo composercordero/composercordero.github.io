@@ -1,9 +1,19 @@
 import { ThemeProvider } from "styled-components"
+import { createGlobalStyle } from 'styled-components';
+
+
+export const GlobalStyles = createGlobalStyle`
+    body {
+        background: ${({ theme }) => theme.colors.body};
+        color: ${({ theme }) => theme.colors.text};
+}
+`;
 
 const lightTheme = {
     colors: {
-        bgColor: '#fff',
-        fontColor: '#444',
+        body: '#fff',
+        text: '#444',
+        white: '#fff',
         accentColor: {
             100: "#ffcce6",
             200: "#ff99cc",
@@ -17,14 +27,16 @@ const lightTheme = {
     },
     fonts: ['Poppins', 'sans-serif'],
     fontSizes:{
-        xs: '0.8rem',
+        xs: '0.875rem',
         s: '1rem',
         m: '1.5rem',
-        l: '3rem',
-        xl: '4.5rem',
+        l: '2rem',
+        xl: '3rem',
+        xxl: '4.5rem',
+        xxxl: '6rem',
     },
     fontWeights:{
-        light: 100,
+        light: 200,
         normal: 300,
         bold: 500,
         bolder: 700,
@@ -33,8 +45,9 @@ const lightTheme = {
 
 const darkTheme = {
     colors: {
-        BgColor: '#fff',
-        fontColor: '#444',
+        body: '#1c1c1c',
+        text: '#ffffff',
+        white: '#fff',
         accentColor: {
             100: "#ffcce6",
             200: "#ff99cc",
@@ -48,14 +61,16 @@ const darkTheme = {
     },
     fonts: ['Poppins', 'sans-serif'],
     fontSizes:{
-        xs: '0.8rem',
+        xs: '0.875rem',
         s: '1rem',
         m: '1.5rem',
-        l: '3rem',
-        xl: '4.5rem',
+        l: '2rem',
+        xl: '3rem',
+        xxl: '4.5rem',
+        xxxl: '6rem',
     },
     fontWeights:{
-        light: 100,
+        light: 200,
         normal: 300,
         bold: 500,
         bolder: 700,
@@ -65,7 +80,7 @@ const darkTheme = {
 export default function Theme({children, isDarkTheme}){
     return  <>
         <ThemeProvider theme = { isDarkTheme ? darkTheme : lightTheme } >
+            <GlobalStyles />
             {children}
         </ThemeProvider>
-    </>
-}
+    </>}

@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import {Route,Routes} from 'react-router-dom';
 import Theme from './Theme.jsx';
+import { GlobalStyles } from './Theme.jsx';
+
 // import Views
 import Home from "./views/Home"
 import Contact from "./views/Contact"
@@ -13,6 +15,7 @@ import Footer from "./components/global/Footer";
 import './App.css'
 
 
+
 function App() {
 
   const [theme, setTheme] = useState(true);
@@ -20,6 +23,7 @@ function App() {
 
   return (<>
     <Theme isDarkTheme={isDarkTheme}>
+      <GlobalStyles />
       <div style={{display: 'flex',flex: 'auto', flexDirection: 'column',minHeight: 0}}>
         <Header isDarkTheme={isDarkTheme} theme = {theme} setTheme={setTheme}/>
         <Routes>

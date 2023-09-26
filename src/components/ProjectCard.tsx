@@ -15,7 +15,7 @@ const ProjectCardInner = styled.div`
     padding: 2rem 1.875rem;
     border-radius: 25px;
     height: 100%;
-    background-color: #ff99cc;
+    background-color: ${props => props.theme.colors.accentColor[200]};
     position: relative;
     -webkit-box-pack: justify;
     -webkit-box-align: center;
@@ -23,7 +23,7 @@ const ProjectCardInner = styled.div`
     transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
 
     &:hover{
-        background-color: #ff66b3;
+        background-color: ${props => props.theme.colors.accentColor[300]};
 
     }
 `;
@@ -44,7 +44,7 @@ const ProjectTitle = styled.h3`
 
     a{
         text-decoration: none;
-        color: #fff;
+        color: ${props => props.theme.colors.white};
         font-weight: 400;
         
     &:before{
@@ -61,7 +61,7 @@ const ProjectTitle = styled.h3`
 `;
 
 const ProjectDescription = styled.div`
-    color: #fff;
+    color: ${props => props.theme.colors.white};
     font-size: 1rem;
     font-weight: 200;
     flex: 1;
@@ -85,8 +85,8 @@ const ProjectTech = styled.ul`
         font-weight: 400;
         padding: 0.3rem 0.875rem;
         border-radius: 25px;
-        color: #fff;
-        border: 1px solid #fff;
+        color: ${props => props.theme.colors.white};
+        border: 1px solid ${props => props.theme.colors.white};
         background:0 0;
     }
 `;

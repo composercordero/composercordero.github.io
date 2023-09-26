@@ -3,25 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 
 const AccentTitle = styled.p`
     text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 1px;
+    font-weight: ${props => props.theme.fontWeights.bolder};
     font-size: 2rem;
     color:#444;
 
     a {
     font-size: 1.5rem;
-    }
-`;
-
-const Title = styled(AccentTitle)`
-    margin-top: 5rem;
-    width: 100%; 
-    border-bottom: 5px solid #eee; 
-    line-height: 0.1rem;
-
-    span { 
-        background:#fff; 
-        padding-right:1rem;
+    text-decoration: none;
+    color: ${props => props.theme.colors.accentColor[500]};
     }
 `;
 
@@ -29,14 +18,15 @@ const HeroTitle = styled.h1`
     font-size: 6rem;
     line-height:1.2;
     margin-bottom:2rem;
-    font-weight: 600;
-    color: #444;
+    font-weight: ${props => props.theme.fontWeights.bolder};
+    color: ${props => props.theme.colors.text};
 `;
 
 const HeroContent = styled.p`
     font-size: 2rem;
     line-height: 1.8;
-    font-weight: 200;
+    font-weight: ${props => props.theme.fontWeights.light};
+    color: ${props => props.theme.colors.text};
 `;
 
 type heroProps = {
@@ -52,7 +42,7 @@ const Hero = ({accent, title, content}:heroProps) => {
 
     return (<>   
             <AccentTitle>
-                <Link to="about" style = {{textDecoration: 'none', color: '#ff0080'}}onClick={(e) => { e.preventDefault(); navigate("about") }}>{accent}</Link>
+                <Link to="about" onClick={(e) => { e.preventDefault(); navigate("about") }}>{accent}</Link>
             </AccentTitle>
 
             <HeroTitle>

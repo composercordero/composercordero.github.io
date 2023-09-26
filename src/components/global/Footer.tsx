@@ -6,7 +6,7 @@ type footerProps = {
 
 const FooterDiv = styled.div`
     flex:none;
-    font-size: .875rem;
+    font-size: ${props => props.theme.fontSizes.xs};
     padding: 2rem 0;
     margin-top: 2rem;
     border-top: 1px solid #eee;
@@ -21,7 +21,8 @@ const StyledFooter = styled.div`
     max-width: 1200px;
 
     @media (max-width: 768px) {
-        flex-wrap: nowrap;}
+        flex-wrap: nowrap;
+    }
 `;
 
 const Item = styled.p`
@@ -35,15 +36,15 @@ const Icons = styled.div`
     margin-left: auto;
     padding-right: 0
     fill: currentcolor;
-    font-size: 1.5rem;
+    font-size: ${props => props.theme.fontSizes.m};
 
     a{
         text-decoration: none;
-        color: #444;
+        color: ${props => props.theme.colors.text};
         transition: 0.2s ease;
     };
     a:hover{
-        color: #ff0080;
+        color: ${props => props.theme.colors.accentColor[500]};
     }
 `;
 

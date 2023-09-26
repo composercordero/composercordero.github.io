@@ -29,28 +29,30 @@ const ImageContainer = styled.div`
 
 const ProjectSummary = styled.p`
     margin-top: 1rem;
-    color: #ff0080;
-    font-size: 0.875rem;
-    font-weight: 500;
+    color: ${props => props.theme.colors.accentColor[500]};
+    font-size: ${props => props.theme.fontSizes.xs};
+    font-weight: ${props => props.theme.fontWeights.bold};
+
     text-transform:uppercase;
 `;
 
 const ProjectTitle = styled.h1`
-    font-size: 2.5rem;
-    color:#444;
+    font-size: ${props => props.theme.fontSizes.xl};
+    color: ${props => props.theme.colors.text};
     margin-bottom: 1rem;
-    font-weight:700;
+    font-weight: ${props => props.theme.fontWeights.bolder};
     }
 `;
 
 const ProjectDescription = styled.div`
     position: relative;
     border-radius: 25px;
-    font-size: 1.125rem;
-    font-weight: 200;
+    font-size: ${props => props.theme.fontSizes.m};
+    font-weight: ${props => props.theme.fontWeights.light};
     line-height: 1.8;
     margin-bottom: 1rem;
     white-space: pre-line;
+    color: ${props => props.theme.colors.text};
 }
 `;
 
@@ -65,17 +67,17 @@ const ProjectTech = styled.ul`
     li{
         margin: 0 1rem 0.5rem 0;
         font-size: 0.875rem;
-        font-weight: 400;
+        font-weight: ${props => props.theme.fontWeights.bold};
         padding: 0.3rem 0.875rem;
         border-radius: 25px;
-        color: #ff0080;
-        border: 1px solid #ff0080;
+        color: ${props => props.theme.colors.accentColor[500]};
+        border: 1px solid ${props => props.theme.colors.accentColor[500]};
         background:0 0;
     }
 
     li:hover{
-        background-color: #ff0080;
-        color: #ffffff;
+        background-color: ${props => props.theme.colors.accentColor[500]};
+        color: ${props => props.theme.colors.body};
         cursor: pointer;
         transition: 0.2s ease;
     }

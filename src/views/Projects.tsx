@@ -20,7 +20,7 @@ const AccentTitle = styled.p`
     font-weight: 700;
     letter-spacing: 1px;
     font-size: 2rem;
-    color:#444;
+    color:${props => props.theme.colors.text};
 
     a {
     font-size: 1.5rem;
@@ -34,7 +34,7 @@ const Title = styled(AccentTitle)`
     line-height: 0.1rem;
 
     span { 
-        background:#fff; 
+        background:${props => props.theme.colors.body}; 
         padding-right:1rem;
     }
 `;
