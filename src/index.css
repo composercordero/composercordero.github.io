@@ -25,3 +25,10 @@ dl, ol, ul {
 ::-webkit-scrollbar {
     width: 10px;
 }
+
+::selection {
+    background: #ff66b3; 
+  }
+  ::-moz-selection {
+    background: #ff66b3;
+  }

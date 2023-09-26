@@ -135,6 +135,18 @@ const Header = ({isDarkTheme, theme, setTheme}: headerProps) => {
         console.log(`switch to ${isDarkTheme}`);
     };
 
+    const handleNavigate = (e) => {
+        e.preventDefault(); 
+        navigate(e.currentTarget.getAttribute("href"));
+    }
+
+    const handleMobileNavigate = (e) => {
+        e.preventDefault(); 
+        navigate(e.currentTarget.getAttribute("href"));
+        toggleNav(!toggle)
+    }
+
+
 return (<>
     <StyledHeader>
         <Link to="/" onClick={(e) => { e.preventDefault(); navigate("/"); }} style={{display:'flex', alignItems:'center'}}>
@@ -148,14 +160,14 @@ return (<>
                 <StyledMenu>
                     <ul style={{display:'flex', alignItems:'center', columnGap:'2em', marginRight:'1rem'}}>
                         <li>
-                            <Link to="/" onClick={(e) => { e.preventDefault(); navigate("/"); }} > Home </Link>
+                            <Link to="/" onClick={handleNavigate}> Home </Link>
                         </li>
 
                         <li>
-                            <Link to="projects" onClick={(e) => { e.preventDefault(); navigate("projects"); }} > Projects </Link>
+                            <Link to="projects" onClick={handleNavigate}> Projects </Link>
                         </li>
                         <li>
-                            <Link to="contact" onClick={(e) => { e.preventDefault(); navigate("contact"); }} > Contact </Link>
+                            <Link to="contact" onClick={handleNavigate}> Contact </Link>
                         </li>
                     </ul>
                 </StyledMenu>
@@ -175,15 +187,15 @@ return (<>
     <Overlay open={toggle}>
         <OverlayMenu open={toggle}>
             <li>
-                <Link to="/" onClick={(e) => { e.preventDefault(); navigate("/"); }} > Home </Link>
+                <Link to="/" onClick={handleMobileNavigate}> Home </Link>
             </li>
 
             <li>
-                <Link to="projects" onClick={(e) => { e.preventDefault(); navigate("projects"); }} > Projects </Link>
+                <Link to="projects" onClick={handleMobileNavigate}> Projects </Link>
             </li>
 
             <li>
-                <Link to="contact" onClick={(e) => { e.preventDefault(); navigate("contact"); }} > Contact </Link>
+                <Link to="contact" onClick={handleMobileNavigate}> Contact </Link>
             </li>
 
         </OverlayMenu>

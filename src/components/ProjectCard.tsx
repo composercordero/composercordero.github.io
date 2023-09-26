@@ -15,12 +15,17 @@ const ProjectCardInner = styled.div`
     padding: 2rem 1.875rem;
     border-radius: 25px;
     height: 100%;
-    background-color: #ff0080;
+    background-color: #ff99cc;
     position: relative;
     -webkit-box-pack: justify;
     -webkit-box-align: center;
     overflow: auto;
     transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+
+    &:hover{
+        background-color: #ff66b3;
+
+    }
 `;
 
 const ProjectHeader = styled.div`
@@ -34,7 +39,7 @@ const ProjectHeader = styled.div`
 `;
 
 const ProjectTitle = styled.h3`
-    font-size: 1.5rem;
+    font-size: rem;
     margin: 1rem 0;
 
     a{
