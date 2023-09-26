@@ -31,10 +31,11 @@ const Title = styled(AccentTitle)`
     width: 100%; 
     border-bottom: 5px solid #eee; 
     line-height: 0.1rem;
+    text-align: ${(props) => props.direction || 'left'};
 
     span { 
         background:#fff; 
-        padding-right:1rem;
+        padding: ${(props) => props.margin || '0 1rem 0 0'} ;
     }
 `;
 
@@ -66,8 +67,12 @@ const Contact = (props: contactProps) => {
               <p>I met these handsome programming languages through Coding Temple, but that was only the beginning! We are looking for a new place to get to know each other in a deeper way. We want to be part of a team that works hard to produce professional, clean, meaningful solutions for their customer and their audiences. </p>
               <br/>
 
-              <p>If you are interested in giving us a platform to create <Link to="/projects" style={{color:'#ff0080', fontWeight:'500'}}>awesome things</Link>, please send me an email at <a href="mailto:composer.cordero@gmail.com" style={{color:'#ff0080'}}>composer.cordero@gmail.com</a>, connect with me on my social media, or fill the form below! I would love to start a conversation and talk about my love for these languages.</p>
+              <p>If you are interested in giving us a platform to create <Link to="/projects" style={{color:'#ff0080', fontWeight:'500'}}>awesome things</Link>, please send me an email at <a href="mailto:composer.cordero@gmail.com" style={{color:'#ff0080'}}>composer.cordero@gmail.com</a>, connect with me on my <Link to="https://www.instagram.com/composercordero/" target="_blank" style={{color:'#ff0080', fontWeight:'500'}}>social media</Link>, or fill the form below! I would love to start a conversation and talk about my love for these languages.</p>
             </ContactDescription>
+
+            <Title direction={'right'} margin={'0 0 0 1rem'}><span>Contact me</span></Title>
+
+
         </Container>
   )
 }
