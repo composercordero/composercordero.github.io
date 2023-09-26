@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import Hero from "../components/global/Hero";
 import Card from "../components/global/FeaturedProject"
-import featuredProjects from "../components/featuredProjects"
+import featuredProjects from "../components/info/featuredProjects"
 
 
 const Container = styled.section`

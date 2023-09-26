@@ -4,6 +4,14 @@ import { GithubOutlined, LinkedinOutlined, InstagramOutlined } from "@ant-design
 type footerProps = {
 }
 
+const FooterDiv = styled.div`
+    flex:none;
+    font-size: .875rem;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    border-top: 1px solid #eee;
+`;
+
 const StyledFooter = styled.div`
     display: flex;
     align-items: center;
@@ -14,13 +22,6 @@ const StyledFooter = styled.div`
 
     @media (max-width: 768px) {
         flex-wrap: nowrap;}
-`;
-
-const FooterDiv = styled.div`
-    flex:none;
-    font-size: .875rem;
-    padding: 2rem 0;
-    border-top: 1px solid #eee;
 `;
 
 const Item = styled.p`

@@ -1,6 +1,6 @@
-import coroDashboard from "../assets/CORO-Programming-Dashboard.png"
-import coroUser from "../assets/CORO-user-dashboard.png"
-import portfolioHome from "../assets/Portfolio-Home.png"
+import coroDashboard from "../../assets/CORO-Programming-Dashboard.png"
+import coroUser from "../../assets/CORO-user-dashboard.png"
+import portfolioHome from "../../assets/Portfolio-Home.png"
 
 const featuredProjects = [
     {

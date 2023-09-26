@@ -45,7 +45,6 @@ const ProjectTitle = styled.h1`
 
 const ProjectDescription = styled.div`
     position: relative;
-    z-index: 2;
     border-radius: 25px;
     font-size: 1.125rem;
     font-weight: 200;
@@ -59,7 +58,6 @@ const ProjectTech = styled.ul`
     display:flex;
     flex-wrap: wrap;
     position:relative;
-    z-index: 2;
     margin: 1rem 0;
     padding: 0;
     list-style: none;
