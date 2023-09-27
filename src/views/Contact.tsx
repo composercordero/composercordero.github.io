@@ -54,7 +54,35 @@ const ContactDescription = styled.div`
     
 `;
 
-const FormButton = styled.button`
+const StyledForm = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+
+    label{
+      color:${props => props.theme.colors.text};
+      font-size:${props => props.theme.fontSizes.s};
+      font-weight:${(props) => props.theme.fontWeights.normal};
+      
+    }
+    
+    input{
+      width:100%;
+      border: 1px solid #eee;
+      margin-bottom: 2rem;
+      font-size:${props => props.theme.fontSizes.s};
+      height: 30px;
+    }
+
+    textarea{
+      font-size:${props => props.theme.fontSizes.s};
+      border: 1px solid #eee;
+    }
+`;
+
+const FormButton = styled.div`
+
+  input[type='submit']{
     background-color: ${props => props.theme.colors.accentColor[500]};
     color: ${props => props.theme.colors.body};
     font-weight:500;
@@ -67,6 +95,7 @@ const FormButton = styled.button`
     &:hover{
       background-color: ${props => props.theme.colors.accentColor[400]};
     }
+  }
 `;
 
 const info = {
@@ -103,15 +132,19 @@ const Contact = () => {
             </ContactDescription>
 
             <Title ><span>Contact me</span></Title>
-
             <form ref={form} onSubmit={sendEmail}>
-            <label>Name</label>
-            <input type="text" name="name" />
-            <label>Email</label>
-            <input type="email" name="email" />
-            <label>Message</label>
-            <textarea name="message" />
+              
+              <StyledForm>
+              <label>Name</label>
+              <input type="text" name="name" />
+              <label>Email</label>
+              <input type="email" name="email" />
+              <label>Message</label>
+              <textarea rows={4} name="message" />
+            </StyledForm>
+            <FormButton>
             <input type="submit" value="Send" />
+            </FormButton>
             </form>
         </Container>
   )
