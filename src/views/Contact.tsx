@@ -2,8 +2,8 @@ import styled, {useTheme} from "styled-components"
 import Hero from "../components/global/Hero";
 import { Link } from "react-router-dom";
 // ant d component
-import {Form, Input } from 'antd';
 import emailjs from '@emailjs/browser';
+import { useRef } from 'react';
 
 const Container = styled.section`
     display: flex;
@@ -76,21 +76,11 @@ const info = {
 }
 
 const Contact = () => {
-
-  const [form] = Form.useForm<{ name: string; email: string; message:string }>();
-  const { TextArea } = Input;
-
-  const validateMessages = {
-    required: '${label} is required!',
-    types: {
-      email: '${label} is not a valid email!',
-      number: '${label} is not a valid number!',
-    },
-  };
+  const form = useRef()
   
   const sendEmail = (e) => {
-    // e.preventDefault();
-    emailjs.sendForm('gmail', 'portfolio', form.current, 'AGxAhxEkCJLK3KNxZ')
+    e.preventDefault();
+    emailjs.sendForm('portfolio12345', 'portfolio', form.current, 'AGxAhxEkCJLK3KNxZ')
       .then((result) => {
           console.log(result.text);
       }, (error) => {
@@ -114,31 +104,15 @@ const Contact = () => {
 
             <Title ><span>Contact me</span></Title>
 
-            <Form form={form} 
-              name="contact" 
-              layout="vertical" 
-              autoComplete="off"
-              validateMessages={validateMessages}
-              onFinish={sendEmail}
-              >
-            
-            <Form.Item label={<label style={{color:`${prop.colors.text}`,fontSize:`${prop.fontSizes.s}`}}>Name</label>} name='name' rules={[{ required: true }]} >
-              <Input name='name'/>
-            </Form.Item>
-
-            <Form.Item label={<label style={{color:`${prop.colors.text}`,fontSize:`${prop.fontSizes.s}`}}>Email</label>} name='email'  rules={[{ type: 'email', required: true }]}>
-              <Input name='email'/>
-            </Form.Item>
-
-            <Form.Item label={<label style={{color:`${prop.colors.text}`,fontSize:`${prop.fontSizes.s}`}}>Message</label>} name='message' rules={[{ required: true }]}>
-              <TextArea name='message' rows={4} />
-            </Form.Item>
-
-            <Form.Item >
-              <FormButton htmlType="submit">Send</FormButton>
-              <input type="submit" value="Send" />
-            </Form.Item>
-            </Form>
+            <form ref={form} onSubmit={sendEmail}>
+            <label>Name</label>
+            <input type="text" name="name" />
+            <label>Email</label>
+            <input type="email" name="email" />
+            <label>Message</label>
+            <textarea name="message" />
+            <input type="submit" value="Send" />
+            </form>
         </Container>
   )
 }
