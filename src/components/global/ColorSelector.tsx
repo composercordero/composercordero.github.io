@@ -7,14 +7,14 @@ const ColorsDiv = styled.div`
     width: 2rem;
     position: fixed;
     top: 50%;
-    left: 2rem;
+    left: 1.5rem;
     right: auto;
     margin-top: -144px;
     z-index: 10;
     color: ${(props) => props.theme.colors.accentColor[500]};
 
-    @media (max-width: 1080px){
-        display: none;
+    @media (max-height: 420px){
+        display:none;
     }
 `;
 
@@ -43,16 +43,6 @@ const ColorItem = styled.li`
             width: 2.5rem;
             height: 2.5rem;
             animation: 0.3s infinite alternate bounce;
-            
-            @keyframes bounce {
-                from {
-                margin-left: 0;
-            }
-            
-            to {
-                margin-left: 2rem;
-            }
-            }
         }
     }
 `;

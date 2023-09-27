@@ -12,6 +12,7 @@ margin-top: 1rem;
 margin-bottom: 1rem;
 padding-bottom: 2rem;
 
+
 img{
     width: 100%;
     height: 100%;
@@ -20,6 +21,11 @@ img{
     margin: 0;
     max-width: none;
 }
+
+@media (max-width: 769px) {
+    flex-wrap: wrap;
+    }
+
 `;
 
 const ImageContainer = styled.div`
@@ -53,6 +59,10 @@ const ProjectDescription = styled.div`
     margin-bottom: 1rem;
     white-space: pre-line;
     color: ${props => props.theme.colors.text};
+
+    @media (max-width: 1025px) {
+        font-size: ${props => props.theme.fontSizes.s};
+        }
 }
 `;
 

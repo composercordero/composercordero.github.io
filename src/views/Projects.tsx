@@ -13,6 +13,14 @@ const Container = styled.section`
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px;
+
+    @media (max-width: 1025px) {
+        width: 70%;
+        }
+
+    @media (max-width: 769px) {
+        width: 65%;
+        }
 `;
 
 const AccentTitle = styled.p`

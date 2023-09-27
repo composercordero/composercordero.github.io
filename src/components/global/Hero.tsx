@@ -15,11 +15,22 @@ const AccentTitle = styled.p`
 `;
 
 const HeroTitle = styled.h1`
-    font-size: 6rem;
+    font-size: ${props => props.theme.fontSizes.xxxl};
     line-height:1.2;
     margin-bottom:2rem;
     font-weight: ${props => props.theme.fontWeights.bolder};
     color: ${props => props.theme.colors.text};
+
+
+    @media (max-width: 1025px) {
+        font-size: ${props => props.theme.fontSizes.xxl};
+        }
+
+    @media (max-width: 769px) {
+        font-size: ${props => props.theme.fontSizes.xl};
+        }
+
+
 `;
 
 const HeroContent = styled.p`
@@ -27,6 +38,15 @@ const HeroContent = styled.p`
     line-height: 1.8;
     font-weight: ${props => props.theme.fontWeights.light};
     color: ${props => props.theme.colors.text};
+
+    @media (max-width: 1025px) {
+        font-size: ${props => props.theme.fontSizes.m};
+        }
+
+    @media (max-width: 769px) {
+        font-size: ${props => props.theme.fontSizes.s};
+        }
+
 `;
 
 type heroProps = {
