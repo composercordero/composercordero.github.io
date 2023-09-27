@@ -2,7 +2,8 @@ import styled, {useTheme} from "styled-components"
 import Hero from "../components/global/Hero";
 import { Link } from "react-router-dom";
 // ant d component
-import {Form, Input, theme } from 'antd';
+import {Form, Input } from 'antd';
+import emailjs from '@emailjs/browser';
 
 const Container = styled.section`
     display: flex;
@@ -85,13 +86,17 @@ const Contact = () => {
       email: '${label} is not a valid email!',
       number: '${label} is not a valid number!',
     },
-    number: {
-      range: '${label} must be between ${min} and ${max}',
-    },
   };
   
-  const onFinish = (values: any) => {
-    console.log(values);
+  const sendEmail = (e) => {
+    // e.preventDefault();
+    emailjs.sendForm('gmail', 'portfolio', form.current, 'AGxAhxEkCJLK3KNxZ')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+      e.target.reset()
   };
 
   const prop = useTheme()
@@ -114,23 +119,24 @@ const Contact = () => {
               layout="vertical" 
               autoComplete="off"
               validateMessages={validateMessages}
-              onFinish={onFinish}
+              onFinish={sendEmail}
               >
             
             <Form.Item label={<label style={{color:`${prop.colors.text}`,fontSize:`${prop.fontSizes.s}`}}>Name</label>} name='name' rules={[{ required: true }]} >
-              <Input />
+              <Input name='name'/>
             </Form.Item>
 
             <Form.Item label={<label style={{color:`${prop.colors.text}`,fontSize:`${prop.fontSizes.s}`}}>Email</label>} name='email'  rules={[{ type: 'email', required: true }]}>
-              <Input />
+              <Input name='email'/>
             </Form.Item>
 
             <Form.Item label={<label style={{color:`${prop.colors.text}`,fontSize:`${prop.fontSizes.s}`}}>Message</label>} name='message' rules={[{ required: true }]}>
-              <TextArea rows={4} />
+              <TextArea name='message' rows={4} />
             </Form.Item>
 
             <Form.Item >
               <FormButton htmlType="submit">Send</FormButton>
+              <input type="submit" value="Send" />
             </Form.Item>
             </Form>
         </Container>

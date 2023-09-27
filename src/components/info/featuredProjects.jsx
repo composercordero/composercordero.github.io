@@ -1,6 +1,7 @@
 import coroDashboard from "../../assets/CORO-Programming-Dashboard.png"
 import coroUser from "../../assets/CORO-user-dashboard.png"
 import portfolioHome from "../../assets/Portfolio-Home.png"
+import portfolioContact from "../../assets/Portfolio-Contact.png"
 
 const featuredProjects = [
     {
@@ -21,7 +22,7 @@ const featuredProjects = [
         
         This portfolio site aims to showcase a few of my projects while showing my care for consistency, clear communication, as well as my passion for creating fun concepts. I treasure meaningful connections, professionalism (with a touch of silliness when appropriate), and hard work, and would like to find a place where I can explore my love for JS under passionate mentorship.`,
         tech: ['React.js', 'Vite', 'TypeScript', 'Styled Components'],
-        image: [[portfolioHome, 'Carlos Cordero Web Dev'], [portfolioHome, 'CORO user']]
+        image: [[portfolioHome, 'Carlos Cordero Web Dev'], [portfolioContact, 'Carlos Cordero Web Dev contact']]
     }
 ]
 

@@ -7,7 +7,7 @@ const ProjectContent = styled.div`
 const ProjectImage = styled.div`
 display: flex;
 justify-content: start;
-gap: 1rem;
+gap: 4rem;
 margin-top: 1rem;
 margin-bottom: 1rem;
 padding-bottom: 2rem;
