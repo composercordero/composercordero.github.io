@@ -33,7 +33,7 @@ const AccentTitle = styled.p`
     color:${props => props.theme.colors.text};
 
     a {
-    font-size: ${props => props.theme.fontSizes.m};;
+    font-size: ${props => props.theme.fontSizes.m};
     }
 `;
 
@@ -64,6 +64,12 @@ const ContactDescription = styled.div`
     white-space: pre-line;
     text-align: right;
     color: ${props => props.theme.colors.text};
+    
+    a{text-decoration:none;
+      &:hover{
+        text-decoration:underline;
+        color: ${props => props.theme.colors.accentColor[400]}
+      }
 
     @media (max-width: 1025px) {
       font-size: ${props => props.theme.fontSizes.s};

@@ -88,7 +88,6 @@ const ProjectTech = styled.ul`
     li:hover{
         background-color: ${props => props.theme.colors.accentColor[500]};
         color: ${props => props.theme.colors.body};
-        cursor: pointer;
         transition: 0.2s ease;
     }
 `;
