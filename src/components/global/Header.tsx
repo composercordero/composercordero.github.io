@@ -5,6 +5,10 @@ import { Sun, Moon } from "react-bootstrap-icons";
 import carlos from "../../assets/carlos.jpeg"
 import styled, {useTheme} from "styled-components";
 
+type OpenProps = {
+    open: any;
+};
+
 const StickyHeader = styled.div`
     background-color: ${(props)=> props.theme.colors.body};
     position: sticky;
@@ -69,7 +73,7 @@ const NavIcon = styled.button`
     }
 `;
 
-const Line = styled.span`
+const Line = styled.span<OpenProps>`
     display: block;
     border-radius: 50px;
     width: 25px;
@@ -83,7 +87,7 @@ const Line = styled.span`
     }
 `;
 
-const Overlay = styled.div`
+const Overlay = styled.div<OpenProps>`
     position: absolute;
     height: ${props => (props.open ? "91vh" : 0)};
     width: 100vw;
@@ -95,7 +99,7 @@ const Overlay = styled.div`
     }
 `;
 
-const OverlayMenu = styled.ul`
+const OverlayMenu = styled.ul<OpenProps>`
     list-style: none;
     position: absolute;
     left: 50%;

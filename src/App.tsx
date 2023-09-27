@@ -10,7 +10,7 @@ import Contact from "./views/Contact"
 import Projects from "./views/Projects.js"
 // import globals
 import Header from "./components/global/Header";
-import ColorSelector from './components/global/colorSelector.js';
+import ColorSelector from './components/global/ColorSelector.js';
 import Footer from "./components/global/Footer";
 
 import './App.css'

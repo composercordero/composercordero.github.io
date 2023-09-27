@@ -37,7 +37,12 @@ const AccentTitle = styled.p`
     }
 `;
 
-const Title = styled(AccentTitle)`
+type TitleProps = {
+  direction:any,
+  margin:any,
+}
+
+const Title = styled(AccentTitle)<TitleProps>`
     margin: 5rem 0 4rem;
     width: 100%; 
     border-bottom: 5px solid #eee; 
@@ -121,7 +126,7 @@ const info = {
 }
 
 const Contact = () => {
-  const form = useRef()
+  const form = useRef() as React.MutableRefObject<HTMLFormElement>
   
   const sendEmail = (e) => {
     e.preventDefault();
@@ -148,19 +153,20 @@ const Contact = () => {
             </ContactDescription>
 
             <Title ><span>Contact me</span></Title>
-            <form ref={form} onSubmit={sendEmail}>
+            <form ref = {form} onSubmit = {sendEmail}>
               
               <StyledForm>
               <label>Name</label>
-              <input type="text" name="name" />
+                <input type="text" name="name" />
               <label>Email</label>
-              <input type="email" name="email" />
+                <input type="email" name="email" />
               <label>Message</label>
-              <textarea rows={4} name="message" />
-            </StyledForm>
-            <FormButton>
-            <input type="submit" value="Send" />
-            </FormButton>
+                <textarea rows={4} name="message" />
+              </StyledForm>
+
+              <FormButton>
+                <input type="submit" value="Send" />
+              </FormButton>
             </form>
         </Container>
   )
