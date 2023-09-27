@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {useTheme} from "styled-components";
 import { GithubOutlined, LinkedinOutlined, InstagramOutlined } from "@ant-design/icons";
 
 type footerProps = {
@@ -60,9 +60,10 @@ const ScreenReadersOnly = styled.span`
 `;
 
 const Footer = ({}: footerProps) => {
+    const props = useTheme();
 
 return (<>
-    
+
     <FooterDiv>
         <StyledFooter>
             <Item>
@@ -70,7 +71,7 @@ return (<>
             </Item>
 
             <Item>
-                <strong>Email</strong><br /><p><a href="mailto:composer.cordero@gmail.com" style={{color:'#ff0080'}}>composer.cordero@gmail.com</a></p>
+                <strong>Email</strong><br /><p><a href="mailto:composer.cordero@gmail.com" style={{color:`${props.colors.accentColor[500]}`}}>composer.cordero@gmail.com</a></p>
             </Item>
 
             <Icons >

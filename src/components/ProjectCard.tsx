@@ -65,8 +65,6 @@ const ProjectDescription = styled.div`
     font-size: 1rem;
     font-weight: 200;
     flex: 1;
-    flex-
-
 `;
 
 const ProjectFooter = styled.div``;

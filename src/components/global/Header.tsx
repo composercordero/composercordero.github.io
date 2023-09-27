@@ -119,19 +119,17 @@ const OverlayMenu = styled.ul`
 `;
 
 type headerProps = {
-    isDarkTheme: boolean,
     theme:boolean,
     setTheme:Dispatch<SetStateAction<boolean>>,
 }
 
-const Header = ({isDarkTheme, theme, setTheme}: headerProps) => {
+const Header = ({theme, setTheme,}: headerProps) => {
 
     const navigate = useNavigate()
     const [toggle, toggleNav] = useState(false);
 
     const handleTheme = () => {
         setTheme(!theme)
-        console.log(isDarkTheme)
     };
 
     const handleNavigate = (e) => {
