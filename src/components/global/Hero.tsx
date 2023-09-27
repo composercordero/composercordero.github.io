@@ -42,7 +42,7 @@ const Hero = ({accent, title, content}:heroProps) => {
 
     return (<>   
             <AccentTitle>
-                <Link to="about" onClick={(e) => { e.preventDefault(); navigate("about") }}>{accent}</Link>
+                <Link to="about" onClick={(e) => { e.preventDefault(); navigate("/") }}>{accent}</Link>
             </AccentTitle>
 
             <HeroTitle>

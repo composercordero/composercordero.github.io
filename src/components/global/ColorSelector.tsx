@@ -1,4 +1,4 @@
-import { pink, yellow, blue, green, orange } from "../../Theme";
+import { pink, yellow, blue, green, orange, purple } from "../../Theme";
 import { Dispatch, SetStateAction } from "react";
 import styled from "styled-components";
 
@@ -6,11 +6,16 @@ import styled from "styled-components";
 const ColorsDiv = styled.div`
     width: 2rem;
     position: fixed;
-    bottom: 7rem;
+    top: 50%;
     left: 2rem;
     right: auto;
+    margin-top: -144px;
     z-index: 10;
     color: ${(props) => props.theme.colors.accentColor[500]};
+
+    @media (max-width: 1080px){
+        display: none;
+    }
 `;
 
 const ColorsUl = styled.ul`
@@ -26,27 +31,39 @@ const ColorsUl = styled.ul`
 const ColorItem = styled.li`
 
     button{
-        border-radius:50px;
+        border-radius: 10px;
         width: 2rem;
         height: 2rem;
         margin-bottom: 1rem;
         border: none;
         cursor: pointer;
         transition: 0.2s ease;
-
+        
         &:hover{
             width: 2.5rem;
             height: 2.5rem;
+            animation: 0.3s infinite alternate bounce;
+            
+            @keyframes bounce {
+                from {
+                margin-left: 0;
+            }
+            
+            to {
+                margin-left: 2rem;
+            }
+            }
         }
     }
 `;
 
 const colors = [
-    {color: 'pink', code: '#ff0080'},
-    {color: 'yellow', code: '#ffd900'},
-    {color: 'blue', code: '#0088ff'},
-    {color: 'green', code: '#00ff91'},
-    {color: 'orange', code: '#ff6600'},
+    {color: 'pink', code: pink[500]},
+    {color: 'yellow', code: yellow[500]},
+    {color: 'blue', code: blue[500]},
+    {color: 'green', code: green[500]},
+    {color: 'orange', code: orange[500]},
+    {color: 'purple', code: purple[500]},
     ]
 
 type colorSelectorProps = {
@@ -79,6 +96,9 @@ const ColorSelector = ({setCurrentColor}: colorSelectorProps) => {
                 break;
             case 'orange':
                 setCurrentColor(orange)
+                break;
+            case 'purple':
+                setCurrentColor(purple)
                 break;
             default:
                 setCurrentColor(pink)

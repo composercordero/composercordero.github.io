@@ -5,10 +5,15 @@ import { Sun, Moon } from "react-bootstrap-icons";
 import carlos from "../../assets/carlos.jpeg"
 import styled, {useTheme} from "styled-components";
 
+const StickyHeader = styled.div`
+    background-color: ${(props)=> props.theme.colors.body};
+    position: sticky;
+    top: 0;
+    z-index: 10;
+`;
+
 const StyledHeader = styled.section`
     display: flex;
-    position: sticky;
-    top:0;
     background-color: ${props => props.theme.colors.body};
     z-index:1;
     min-height: 9vh;
@@ -119,8 +124,8 @@ const OverlayMenu = styled.ul`
 `;
 
 type headerProps = {
-    theme:boolean,
-    setTheme:Dispatch<SetStateAction<boolean>>,
+    theme:string,
+    setTheme:Dispatch<SetStateAction<string>>,
 }
 
 const Header = ({theme, setTheme,}: headerProps) => {
@@ -129,7 +134,11 @@ const Header = ({theme, setTheme,}: headerProps) => {
     const [toggle, toggleNav] = useState(false);
 
     const handleTheme = () => {
-        setTheme(!theme)
+        if (theme === 'dark'){
+            setTheme('light')
+        }else{
+            setTheme('dark')
+        }
     };
 
     const handleNavigate = (e) => {
@@ -146,7 +155,7 @@ const Header = ({theme, setTheme,}: headerProps) => {
     const prop = useTheme()
 
 return (<>
-
+    <StickyHeader >
     <StyledHeader>
         <Link to="/" onClick={(e) => { e.preventDefault(); navigate("/"); }} style={{display:'flex', alignItems:'center'}}>
             <img src={carlos} alt="Carlos" width={48} height={48} style={{borderRadius: '50%',marginRight:'0.5rem'}}/>
@@ -183,7 +192,7 @@ return (<>
             <li> <Link to="contact" onClick={handleMobileNavigate}> Contact </Link> </li>
         </OverlayMenu>
     </Overlay>
-        
+    </StickyHeader>
 </>)
 }
 export default Header

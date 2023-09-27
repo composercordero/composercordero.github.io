@@ -1,5 +1,5 @@
 // import Node Modules
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {Route,Routes} from 'react-router-dom';
 import Theme from './Theme.jsx';
 import { GlobalStyles } from './Theme.jsx';
@@ -17,8 +17,9 @@ import './App.css'
 
 function App() {
 
-  const [theme, setTheme] = useState(true);
-  const isDarkTheme = theme === false
+  const [theme, setTheme] = useState('light');
+  const isDarkTheme = theme === 'dark'
+  
   const [currentColor, setCurrentColor] = useState({
     100: "#ffcce6",
     200: "#ff99cc",
@@ -36,6 +37,7 @@ function App() {
         body: '#fff',
         text: '#444',
         white: '#fff',
+        shadow: '0px 0px 20px #e9e9e9',
         accentColor: {
             100: currentColor[100],
             200: currentColor[200],
@@ -70,6 +72,7 @@ function App() {
         body: '#1c1c1c',
         text: '#ffffff',
         white: '#fff',
+        shadow: '0px 0px 20px #292929',
         accentColor: {
           100: currentColor[100],
           200: currentColor[200],
@@ -98,6 +101,17 @@ function App() {
         bolder: 700,
     },
   }
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme && ["dark", "light"].includes(savedTheme)) {
+      setTheme(savedTheme);
+    } else if (prefersDark) {
+      setTheme("dark");
+    }
+  }, []);
 
   return (<>
     <Theme isDarkTheme={isDarkTheme} lightTheme={lightTheme} darkTheme={darkTheme}>

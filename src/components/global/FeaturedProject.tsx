@@ -23,7 +23,7 @@ img{
 `;
 
 const ImageContainer = styled.div`
-    box-shadow: 0px 0px 20px #e9e9e9;
+    box-shadow: ${(props) => props.theme.colors.shadow};
     border-radius:25px;
 `;
 

@@ -15,15 +15,15 @@ const ProjectCardInner = styled.div`
     padding: 2rem 1.875rem;
     border-radius: 25px;
     height: 100%;
-    background-color: ${props => props.theme.colors.accentColor[200]};
-    position: relative;
+    background-color: ${props => props.theme.colors.accentColor[300]};
+    position: relative
     -webkit-box-pack: justify;
     -webkit-box-align: center;
     overflow: auto;
     transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
 
     &:hover{
-        background-color: ${props => props.theme.colors.accentColor[300]};
+        background-color: ${props => props.theme.colors.accentColor[400]};
 
     }
 `;
