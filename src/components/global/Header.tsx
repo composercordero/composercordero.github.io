@@ -174,6 +174,7 @@ return (<>
                         <li><Link to="/" onClick={handleNavigate}> Home </Link></li>
                         <li> <Link to="projects" onClick={handleNavigate}> Projects </Link> </li>
                         <li> <Link to="contact" onClick={handleNavigate}> Contact </Link> </li>
+                        <li> <Link to="https://docs.google.com/document/d/1peIeA7j-sQuOlP-WIZDSgIImkbW0KWiZl3LBgi2S9CM/edit?usp=sharing" target="_blank"> Resume </Link> </li>
                     </ul>
                 </StyledMenu>
             <Icons>
